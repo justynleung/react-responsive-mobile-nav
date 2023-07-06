@@ -1,0 +1,242 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ebfbf3;
+    color: #000;
+    height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1;
+    min-height: 100%;
+    text-align: center;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 400;
+}
+
+h1 {
+    padding-top: 120px;
+    padding-bottom: 20px;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+header {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    opacity: 0.98;
+    box-shadow: 0 2px 3px rgba(15, 15, 15, 0.13);
+    background-color: #5c9484;
+}
+
+.nav .menu-nav {
+    height: 100px;
+    flex: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    padding-right: 3rem;
+}
+
+.nav .menu-nav .menu-nav_item {
+    font-size: 1.3rem;
+    padding: 0 1rem;
+}
+
+.nav .menu-nav_link:hover {
+    color: #dddddd;
+    transition: all 450ms ease-in-out;
+}
+
+.content {
+    margin: 0 10%;
+}
+
+@keyframes mobile-nav-transition-enter {
+    from {
+        transform: translateX(100vw);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes mobile-nav-transition-exit {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(100vw);
+        opacity: 0;
+    }
+}
+
+.mobile-nav {
+    position: relative;
+    z-index: -1;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 4rem;
+    overflow: hidden;
+    list-style: none;
+    background-color: #5c9484;
+    opacity: 0.98;
+}
+
+.mobile-nav_item {
+    display: inline-block;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    padding: 0 0 2.5rem 3.5rem;
+    font-weight: 300;
+}
+
+.mobile-nav_item:nth-child(1) {
+    animation-name: mobile-nav-transition-enter;
+    animation-duration: 0.63s;
+    animation-timing-function: ease-in-out;
+}
+
+.mobile-nav_item:nth-child(2) {
+    animation-name: mobile-nav-transition-enter;
+    animation-duration: 0.71s;
+    animation-timing-function: ease-in-out;
+}
+
+.mobile-nav_item:nth-child(3) {
+    animation-name: mobile-nav-transition-enter;
+    animation-duration: 0.79s;
+    animation-timing-function: ease-in-out;
+}
+
+.mobile-nav_item:nth-child(4) {
+    animation-name: mobile-nav-transition-enter;
+    animation-duration: 0.87s;
+    animation-timing-function: ease-in-out;
+}
+
+.mobile-nav_item:nth-child(5) {
+    animation-name: mobile-nav-transition-enter;
+    animation-duration: 0.95s;
+    animation-timing-function: ease-in-out;
+}
+
+.mobile-nav.start-animation {
+    animation-name: mobile-nav-transition-enter;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+}
+
+.mobile-nav.end-animation {
+    animation-name: mobile-nav-transition-exit;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+}
+
+.mobile-nav.closed {
+    transform: translateX(100vw);
+}
+
+.menu-btn {
+    position: absolute;
+    right: 1.8rem;
+    top: 1.7rem;
+    height: 20px;
+    width: 28px;
+    cursor: pointer;
+    transition: all 450ms ease-in-out;
+}
+
+.menu-btn_burger {
+    position: absolute;
+    right: 0;
+    top: 0.5rem;
+    width: 28px;
+    height: 3px;
+    background: #000;
+    transition: all 450ms ease-in-out;
+}
+
+.menu-btn_burger::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -8px;
+    width: 28px;
+    height: 3px;
+    background: #000;
+    transition: all 450ms ease-in-out;
+}
+
+.menu-btn_burger::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 8px;
+    width: 28px;
+    height: 3px;
+    background: #000;
+    transition: all 450ms ease-in-out;
+}
+
+.menu-btn_burger.open {
+    transform: rotate(720);
+    background: transparent;
+}
+
+.menu-btn_burger.open::before {
+    transform: rotate(45deg) translate(5px, 8px);
+}
+
+.menu-btn_burger.open::after {
+    width: 28px;
+    transform: rotate(-45deg) translate(3px, -7px);
+}
+
+.menu-btn_burger.opened {
+    transform: rotate(720);
+    background: transparent;
+}
+
+.menu-btn_burger.opened::before {
+    transform: rotate(45deg) translate(5px, 8px);
+}
+
+.menu-btn_burger.opened::after {
+    width: 28px;
+    transform: rotate(-45deg) translate(3px, -7px);
+}
